@@ -30,23 +30,27 @@ void Push(Node* hd, int x)
 void Delete(Node* hd, int x)
 {
 	Node* prev = new Node();
-	// prev = hd->next;
+	Node* temp = new Node();	
 	bool f = 1;
 	while(hd->next != NULL)
-	{
+	{				
 		if(hd->data == x)
-		{
+		{			
+			temp = prev->next;
 			prev->next = hd->next;
-			f=0;
 			hd = hd->next;
+			delete temp;			
+			f=0;
 			continue;
 		}
-		prev = hd;
+		prev = hd;		
 		hd = hd->next;		
 	}
 	if(hd->data == x)
 	{
+		temp = prev->next;
 		prev->next = NULL;
+		delete temp;
 		f=0;
 	}
 	if(f) cout<<"There is no value such "<<x<<endl;
