@@ -34,9 +34,15 @@ void Revers(Node* hd, Node* hd1)
 		return;
 	}
 	Revers(hd,hd1->next);
-	Node* temp = new Node();
-	temp = hd1->next;
-	temp->next = hd1;
+	
+// 	we can use this way : 
+// 	Node* temp = new Node();
+// 	temp = hd1->next;
+// 	temp->next = hd1;
+	
+// 	also can use this way: 
+	hd1->next->next = hd1;
+	
 	hd1->next = NULL;
 }
 
